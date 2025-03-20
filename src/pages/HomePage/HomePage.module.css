@@ -1,0 +1,55 @@
+.title {
+    /* margin-left: 10px; */
+    margin-bottom: 16px;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 0.66;
+    letter-spacing: 0%;
+    color: #f7f7f7;
+}
+
+.paragraph {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33;
+    letter-spacing: 0%;
+    margin-bottom: 40px;
+    color: #f7f7f7;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    background-image: url(../../assets/van.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 260PX 64px;
+    /* height: calc(100vh - 72px); */
+    height: auto;
+}
+
+.heroBtn {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    vertical-align: middle;
+    color: #ffffff;
+    /* width: 173;
+  height: 56; */
+    border-radius: 200px;
+    padding: 16px 48.5px;
+    background-color: #E44848;
+    border: 2px solid #E44848;
+}
+.heroBtn:hover,
+.heroBtn:focus {
+    background-color: #D84343;
+    border: 2px solid #D84343;
+
+}
