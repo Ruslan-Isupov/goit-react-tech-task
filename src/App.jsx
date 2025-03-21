@@ -2,13 +2,9 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
-const CamperDetailsPage = lazy(() =>
-  import("./pages/CamperDetailsPage/CamperDetailsPage.jsx")
-);
 
-const NotFoundPage = lazy(() =>
-  import("./pages/NotFoundPage/NotFoundPage.jsx")
-);
+
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage.jsx"));
 
 const App = () => {
   return (
@@ -20,7 +16,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/catalog/:id" element={<CamperDetailsPage />}></Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
