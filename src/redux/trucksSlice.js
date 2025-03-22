@@ -48,4 +48,5 @@ const trucksSlice = createSlice({
 
 export const { incrementCurrentPage, resetCurrentPage, appendTrucks } =
   trucksSlice.actions;
-export default trucksSlice.reducer;
+
+export const trucksReducer = trucksSlice.reducer;
