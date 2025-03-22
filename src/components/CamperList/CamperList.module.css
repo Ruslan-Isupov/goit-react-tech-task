@@ -1,0 +1,61 @@
+
+.title {
+    margin-left: 10px;
+}
+
+.campersListItem {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid #dadde1;
+    background-color: #ffffff;
+    max-width: 890px;
+    box-shadow: 2px 4px 6px #dadde1;
+}
+
+.icon {
+    color: #101828;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.campersList {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+}
+
+.campersListWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 48px;
+}
+
+.btnMore {
+    width: 145px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    border-radius: 200px;
+    border: 1px solid #dadde1;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.08px;
+    transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnMore:hover {
+    border-color: #d84343;
+}
