@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import trucksReducer from "./trucksSlice";
+import { trucksReducer } from "./trucks/slice";
 import sessionStorage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 
