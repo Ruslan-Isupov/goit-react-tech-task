@@ -1,0 +1,128 @@
+
+.mainInfo {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.listIcon {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 24px;
+    /* flex: 1 1 calc(33.33% - 10px);
+    max-width: calc(33.33% - 10px); */
+
+}
+
+.wrapperContent {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.img {
+    display: block;
+    /* width: 292px;
+    height: auto; */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.wrapperItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.wrapperItemRating {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.item,
+.itemLocation {
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.itemLocation {
+    gap: 8px;
+    transition: text-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
+        font-weight 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activeLocation {
+    font-weight: 600;
+}
+
+.camperPar {
+    margin: 0;
+}
+
+.btnShowMore {
+    width: 166px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 200px;
+    background: #e44848;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.08px;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnShowMore:hover {
+    background-color: #d84343;
+    color: #ffffff;
+}
+
+.title,
+.price {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.33;
+    margin: 0;
+}
+
+.description {
+    display: -webkit-box;
+    width: 525px;
+    -webkit-box-orient: vertical;
+    /* -webkit-line-clamp: 1; */
+    margin: 0;
+    overflow: hidden;
+    color: #475467;
+    text-overflow: ellipsis;
+    margin-bottom: 24px;
+}
+
+.btnHeart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    background-color: #ffffff;
+}
+
+.active {
+    color: #e44848;
+}
+
+.icon {
+    fill: currentColor;
+}
