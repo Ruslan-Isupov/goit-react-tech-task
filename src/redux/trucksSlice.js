@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllCampers } from "./camperOps";
+import { getAllCampers, getCamperById } from "./camperOps";
 
 const handlePending = (state) => {
   state.loader = true;
@@ -8,14 +8,19 @@ const handlePending = (state) => {
 const handleRejected = (state, action) => {
   state.loader = false;
   state.error = action.payload;
+  // return "Помилка";
 };
 
 const initialState = {
   items: [],
   loader: false,
   error: null,
+  currentCamper: null,
   currentPage: 1,
   itemsPerPage: 10,
+  itemId: null,
+  totalItems: 0,
+  hasNextPage: false,
 };
 
 const trucksSlice = createSlice({
@@ -33,16 +38,42 @@ const trucksSlice = createSlice({
       state.items = [...state.items, ...action.payload];
     },
   },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(getAllCampers.pending, handlePending)
+  //     .addCase(getAllCampers.fulfilled, (state, action) => {
+  //       // console.log(action.payload);
+  //       state.loader = false;
+  //       state.error = null;
+  //       state.items = [...state.items, ...action.payload.items];
+  //     })
+  //     .addCase(getAllCampers.rejected, handleRejected)
+  //     .addCase(getCamperById.pending, handlePending)
+  //     .addCase(getCamperById.fulfilled, (state, action) => {
+  //       state.loader = false;
+  //       state.itemId = action.payload;
+  //     })
+  //     .addCase(getCamperById.rejected, handleRejected);
+  // },
+
   extraReducers: (builder) => {
+    // Fetch campers
     builder
       .addCase(getAllCampers.pending, handlePending)
       .addCase(getAllCampers.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.loader = false;
         state.error = null;
         state.items = [...state.items, ...action.payload.items];
       })
-      .addCase(getAllCampers.rejected, handleRejected);
+      .addCase(getAllCampers.rejected, handleRejected)
+      // Fetch camper
+      .addCase(getCamperById.pending, handlePending)
+      .addCase(getCamperById.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.currentCamper = action.payload;
+        state.loader = false;
+      })
+      .addCase(getCamperById.rejected, handleRejected);
   },
 });
 
