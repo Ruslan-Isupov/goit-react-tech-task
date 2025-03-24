@@ -1,27 +1,71 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+// import { combineReducers, configureStore } from "@reduxjs/toolkit";
+// import { trucksReducer } from "./trucksSlice";
+// import { filtersReducer } from "./filtersSlice";
+// import { favoritesReducer } from "./favoritesSlice";
+// import sessionStorage from "redux-persist/lib/storage";
+// import { persistStore, persistReducer } from "redux-persist";
+
+// const persistConfig = {
+//   key: "root",
+//   storage: sessionStorage,
+//   whitelist: ["favorites"],
+// };
+
+// const rootReducer = combineReducers({
+//   trucks: trucksReducer,
+//   filters: filtersReducer,
+//   favorites: favoritesReducer,
+// });
+
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// export const store = configureStore({
+//   reducer: persistedReducer,
+//   middleware: (getDefaultMiddleware) =>
+//     getDefaultMiddleware({
+//       serializableCheck: false,
+//     }),
+// });
+
+// export const persistor = persistStore(store);
+import { configureStore } from "@reduxjs/toolkit";
 import { trucksReducer } from "./trucksSlice";
 import { filtersReducer } from "./filtersSlice";
-import sessionStorage from "redux-persist/lib/storage";
-import { persistStore, persistReducer } from "redux-persist";
+import { favoritesReducer } from "./favoritesSlice";
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const persistConfig = {
-  key: "root",
-  storage: sessionStorage,
-  whitelist: ["favorites"],
+const favoritesPersistConfig = {
+  key: "favorites",
+  storage,
+  whitelist: ["favoritesList"],
 };
 
-const rootReducer = combineReducers({
-  trucks: trucksReducer,
-  filters: filtersReducer,
-});
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistFavoritesReducer = persistReducer(
+  favoritesPersistConfig,
+  favoritesReducer
+);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    trucks: trucksReducer,
+    filters: filtersReducer,
+    favorites: persistFavoritesReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
     }),
 });
 

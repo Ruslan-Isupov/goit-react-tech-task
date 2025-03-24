@@ -24,6 +24,10 @@
     line-height: 1.33;
 }
 
+.starIcon {
+    fill: #FFC531;
+}
+
 .truckGallery {
     display: flex;
     gap: 48px;

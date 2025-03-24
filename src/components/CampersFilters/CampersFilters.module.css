@@ -181,6 +181,7 @@
     padding: 16px;
     border-radius: 200px;
     background: #e44848;
+ 
     color: #ffffff;
     font-family: inherit;
     font-size: 16px;
@@ -194,8 +195,13 @@
 
 
 .searchButton:hover {
-    background-color: #d84343;
-    color: #ffffff;
-    /* border: 1 solid #d84343; */
+outline: none;
+border: 1 solid transparent;
 
 }
+
+/* .btnHeart:hover {
+    border: 1px solid #ffffff;
+    outline: none;
+
+} */

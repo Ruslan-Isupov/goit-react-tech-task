@@ -33,7 +33,6 @@ const CampersFilters = () => {
 
   const handleEquipmentChange = (e) => {
     const { name, checked } = e.target;
-    console.log(name, checked);
     setSelectedEquipment((prevState) => ({
       ...prevState,
       [name]: checked,

@@ -12,3 +12,7 @@ export const selectTotalItems = (state) => state.trucks.totalItems;
 export const selectFiltersEquipment = (state) => state.filters.equipment;
 export const selectFormType = (state) => state.filters.formType;
 export const selectLocation = (state) => state.filters.location;
+
+// favorites
+
+export const selectFavoritesList = (state) => state.favorites.favoritesList;

@@ -15,7 +15,7 @@ const CamperDetails = () => {
       <h2 className={css.title}>{truck.name}</h2>
       <div className={css.wrapperItem}>
         <div className={css.item}>
-          <svg width={16} height={16} aria-label="Rating">
+          <svg width={16} height={16} aria-label="Rating" className={css.starIcon}>
             <use href={`${icons}#icon-star`} />
           </svg>
           <p>{`${truck.rating}(${truck.reviews.length} Reviews)`}</p>

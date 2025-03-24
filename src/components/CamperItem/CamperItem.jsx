@@ -1,15 +1,35 @@
 import css from "./CamperItem.module.css";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import FeatureIcon from "../FeatureIcon/FeatureIcon";
 import icons from "../../assets/icons.svg";
-
+import { addFavorites, removeFavorites } from "../../redux/favoritesSlice";
+import { selectFavoritesList } from "../../redux/selectors";
 
 const CamperItem = ({ camperDetails }) => {
+
+
+    const dispatch = useDispatch();
   const features = [];
   if (camperDetails.AC) features.push("AC");
   if (camperDetails.TV) features.push("TV");
   if (camperDetails.kitchen) features.push("Kitchen");
   if (camperDetails.bathroom) features.push("Bathroom");
+
+
+
+ const favoritesList = useSelector(selectFavoritesList);
+  const toggleFavorite = favoritesList.some((item) => item.id === camperDetails.id);
+ 
+
+  const toggleFavoriteBtn = () => {
+    if (!toggleFavorite) {
+      dispatch(addFavorites(camperDetails));
+    } else {
+      dispatch(removeFavorites(camperDetails.id));
+    }
+  };
+
 
   return (
     <>
@@ -24,14 +44,15 @@ const CamperItem = ({ camperDetails }) => {
         <div className={css.mainInfo}>
           <p className={css.title}>{camperDetails.name} </p>
           <div className={css.wrapperItem}>
-            <p className={css.price}>€{camperDetails.price}</p>
+            <p className={css.price}>{`€${camperDetails.price.toFixed(2)}`}</p>
 
-            <button>
+            <button  className={`${css.btnHeart} ${toggleFavorite ? css.active : ""}`} >
               <svg
                 width={24}
                 height={24}
                 className={css.icon}
                 aria-label="Add to favorites"
+                onClick={toggleFavoriteBtn}
               >
                 <use href={`${icons}#icon-heart`} />
               </svg>
@@ -41,7 +62,7 @@ const CamperItem = ({ camperDetails }) => {
 
         <div className={css.wrapperItemRating}>
           <div className={css.item}>
-            <svg width={16} height={16} aria-label="Rating">
+            <svg width={16} height={16} aria-label="Rating" className={css.starIcon}>
               <use href={`${icons}#icon-star`} />
             </svg>
             <p className={css.camperPar}>

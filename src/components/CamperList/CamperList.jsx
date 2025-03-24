@@ -50,11 +50,10 @@ const CamperList = () => {
      <>
       {error ? (
         <div className={css.container}>
-          <TbCamper size={220} className={css.icon} />
           <h2 className={css.title}>No Trucks Found</h2>
           <div>
-            <p>No trucks found for the selected criteria</p>
-            <p> Please, try adjusting your search criteria</p>
+            <p>No trucks found for your criteria</p>
+            <p> Please, try enter other criterias</p>
           </div>
         </div>
       ) : (

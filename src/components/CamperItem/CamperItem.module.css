@@ -16,6 +16,11 @@
 
 }
 
+.starIcon {
+    fill: #FFC531;
+}
+
+
 .wrapperContent {
     display: flex;
     align-items: baseline;
@@ -115,10 +120,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #ffffff;
     outline: none;
     background-color: #ffffff;
 }
-
+.btnHeart:hover {
+    border: 1px solid #ffffff;
+    outline: none;
+    
+}
+.btnHeart:active{
+    border: 1px solid #ffffff;
+        outline: none;
+}
 .active {
     color: #e44848;
 }

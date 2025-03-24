@@ -55,7 +55,6 @@ const trucksSlice = createSlice({
       .addCase(getAllCampers.rejected, handleRejected)
       .addCase(getCamperById.pending, handlePending)
       .addCase(getCamperById.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.currentCamper = action.payload;
         state.loader = false;
       })
