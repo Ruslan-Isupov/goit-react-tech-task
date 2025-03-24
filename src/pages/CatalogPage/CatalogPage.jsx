@@ -35,11 +35,11 @@ const CatalogPage = () => {
 
   return (
     <div className={css.wrapper}>
-         
+          <div className={css.container}>
       <CampersFilters />
       <CamperList />
       </div>
-   
+      </div>
   );
 };
 export default CatalogPage;

@@ -1,0 +1,61 @@
+export const Specification = (truck) => [
+  {
+    condition: truck.transmission === "automatic",
+    text: "Automatic",
+    id: "automatic",
+    icon: "automatic",
+  },
+  {
+    condition: truck.engine === "petrol",
+    text: "Petrol",
+    id: "engine",
+    icon: "Petrol",
+  },
+  {
+    condition: truck.kitchen,
+    text: "Kitchen",
+    id: "kitchen",
+    icon: "kitchen",
+  },
+  { condition: truck.AC, text: "AC", id: "AC", icon: "AC" },
+  { condition: truck.TV, text: "TV", id: "TV", icon: "TV" },
+  {
+    condition: truck.bathroom,
+    text: "Bathroom",
+    id: "bathroom",
+    icon: "bathroom",
+  },
+  { condition: truck.radio, text: "Radio", id: "radio", icon: "Radio" },
+  { condition: truck.water, text: "Water", id: "water", icon: "Water" },
+  { condition: truck.gas, text: "Gas", id: "gas", icon: "Gas" },
+  {
+    condition: truck.refrigerator,
+    text: "Refrigerator",
+    id: "refrigerator",
+    icon: "Refrigerator",
+  },
+  {
+    condition: truck.microwave,
+    text: "Microwave",
+    id: "microwave",
+    icon: "Microwave",
+  },
+  {
+    condition: truck.form === "panelTruck",
+    text: "Van",
+    id: "panelTruck",
+    icon: "panelTruck",
+  },
+  {
+    condition: truck.form === "alcove",
+    text: "Alcove",
+    id: "alcove",
+    icon: "alcove",
+  },
+  {
+    condition: truck.form === "fullyIntegrated",
+    text: "Fully Integrated",
+    id: "fullyIntegrated",
+    icon: "fullyIntegrated",
+  },
+];

@@ -1,11 +1,9 @@
 import { useState } from "react";
-// import { useDispatch,useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-// import { resetCurrentPage } from "../../redux/trucksSlice";
-// import { getAllCampers } from "../../redux/camperOps";
+
 import css from "./CampersFilters.module.css";
 import icons from "../../assets/icons.svg";
-// import { selectLocation,selectFiltersEquipment,selectFormType } from "../../redux/selectors";
+
 import {
   setLocation,
   toggleFilters,

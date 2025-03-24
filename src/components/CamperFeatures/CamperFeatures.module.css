@@ -1,0 +1,36 @@
+.featuresContainer {
+    display: flex;
+    padding-top: 44px;
+    justify-content: space-between;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    width: 631px;
+    border-radius: 10px;
+    background: #f7f7f7;
+    padding: 44px 52px;
+    box-sizing: border-box;
+}
+
+.specificationListWrapper {
+    display: flex;
+    width: 527px;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-bottom: 1px solid #dadde1;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    width: 100%;
+}

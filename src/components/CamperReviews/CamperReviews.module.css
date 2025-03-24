@@ -1,0 +1,66 @@
+.reviewsContainer {
+    display: flex;
+    padding-top: 44px;
+    justify-content: space-between;
+}
+
+.wrapperContent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    width: 631px;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background: #f2f4f7;
+    color: #e44848;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleText {
+    font-weight: 500;
+}
+
+.ratingList {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.filled {
+    fill: #ffc531;
+}
+
+.empty {
+    fill: #f2f4f7;
+}
+
+.text {
+    color: #475467;
+}
