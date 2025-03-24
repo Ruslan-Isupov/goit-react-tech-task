@@ -9,7 +9,7 @@ selectCurrentCamper
 
 const CamperDetails = () => {
     const truck = useSelector(selectCurrentCamper);
-    console.log(truck)
+    // console.log(truck)
   return (
    <section className={css.truckSection}>
       <h2 className={css.title}>{truck.name}</h2>

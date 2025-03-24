@@ -1,9 +1,10 @@
 
 import CamperDetails from "../../components/CamperDetails/CamperDetails";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useParams } from "react-router";
 import { useEffect } from "react";
-import { NavLink } from "react-router";
+
+import { Link, Outlet, useParams } from "react-router-dom";
+import clsx from "clsx";
 
 
 import { selectCurrentCamper, selectLoader } from "../../redux/selectors";
@@ -11,8 +12,11 @@ import { getCamperById } from "../../redux/camperOps";
 import css from "./CamperDetailsPage.module.css";
 
 
-
-
+  const getLinkClass = (path) => {
+    return clsx(css.link, {
+      [css.active]: location.pathname === path,
+    });
+  };
 
 export default function CamperDetailsPage() {
   const dispatch = useDispatch();
@@ -33,18 +37,24 @@ export default function CamperDetailsPage() {
           <ul className={css.TruckDetails}>
             <li>
            
-              <NavLink to="features">
-                Features
-              </NavLink>
+               <Link
+                  className={getLinkClass(`/catalog/${id}/features`)}
+                  to={`/catalog/${id}/features`}
+                >
+                  Features
+                </Link>
             </li>
             <li>
             
-                        <NavLink to="reviews">
-                Reviews
-              </NavLink>
+               <Link
+                  className={getLinkClass(`/catalog/${id}/reviews`)}
+                  to={`/catalog/${id}/reviews`}
+                >
+                  Reviews
+                </Link>
             </li>
           </ul>
-      
+        <Outlet />
         </>
       )}
     </div>
