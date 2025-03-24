@@ -1,150 +1,110 @@
 import { useState } from "react";
+// import { useDispatch,useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setFilter } from "../../redux/filtersSlice";
-import { appendTrucks } from "../../redux/trucksSlice";
-import { getAllCampers } from "../../redux/camperOps";
-
+// import { resetCurrentPage } from "../../redux/trucksSlice";
+// import { getAllCampers } from "../../redux/camperOps";
 import css from "./CampersFilters.module.css";
-import iconsSpritePath from "../../assets/icons.svg";
+import icons from "../../assets/icons.svg";
+// import { selectLocation,selectFiltersEquipment,selectFormType } from "../../redux/selectors";
+import {
+  setLocation,
+  toggleFilters,
+  setFormType,
+} from "../../redux/filtersSlice";
 
-const CatalogFilters = () => {
-  const dispatch = useDispatch();
-  const [location, setLocation] = useState("");
-  const [selectedEquipment, setSelectedEquipment] = useState([]);
+const CampersFilters = () => {
+  const equipmentOptions = {
+    AC: false,
+    automatic: false,
+    kitchen: false,
+    TV: false,
+    bathroom: false,
+  };
+  const type = [
+    { name: "Van", value: "van" },
+    { name: "Fully Integrated", value: "fullyintegrated" },
+    { name: "Alcove", value: "alcove" },
+  ];
+
+  const [locationTrucks, setLocationTrucks] = useState("");
+  const [selectedEquipment, setSelectedEquipment] = useState(equipmentOptions);
   const [vehicleType, setVehicleType] = useState("");
 
-  const equipmentOptions = ["AC", "Automatic", "Kitchen", "TV", "Bathroom"];
-  const vehicleTypes = ["Van", "Fully Integrated", "Alcove"];
+  const dispatch = useDispatch();
+  const options = Object.keys(selectedEquipment);
 
-  const iconMapping = {
-    AC: "icon-ac",
-    Automatic: "icon-diagram",
-    Kitchen: "icon-kitchen",
-    TV: "icon-tv",
-    Bathroom: "icon-bathroom",
-    Van: "icon-van",
-    "Fully Integrated": "icon-integrated",
-    Alcove: "icon-alcove",
+  const handleEquipmentChange = (e) => {
+    const { name, checked } = e.target;
+    console.log(name, checked);
+    setSelectedEquipment((prevState) => ({
+      ...prevState,
+      [name]: checked,
+    }));
   };
 
-  const vehicleTypeMapping = {
-    Van: "van",
-    "Fully Integrated": "fullyIntegrated",
-    Alcove: "alcove",
-  };
-
-  const handleEquipmentChange = (option) => {
-    setSelectedEquipment((prev) =>
-      prev.includes(option)
-        ? prev.filter((item) => item !== option)
-        : [...prev, option]
-    );
-  };
-
-  const handleVehicleTypeChange = (type) => {
-    setVehicleType((prevType) => (prevType === type ? "" : type));
+  const handleTypeClick = (value) => {
+    if (vehicleType === value) {
+      setVehicleType("");
+    } else {
+      setVehicleType(value);
+    }
   };
 
   const handleSearch = async (e) => {
     e.preventDefault();
-
-    dispatch(setFilter({ key: "location", value: location }));
-    dispatch(setFilter({ key: "equipment", value: selectedEquipment }));
-    dispatch(setFilter({ key: "type", value: vehicleType }));
-
-    const params = {
-      ...(location && { location }),
-      ...(vehicleType && { form: vehicleTypeMapping[vehicleType] }),
-      ...(selectedEquipment.includes("AC") && { AC: true }),
-      ...(selectedEquipment.includes("TV") && { TV: true }),
-      ...(selectedEquipment.includes("Kitchen") && { kitchen: true }),
-      ...(selectedEquipment.includes("Bathroom") && { bathroom: true }),
-      ...(selectedEquipment.includes("Automatic") && {
-        autoTransmission: true,
-      }),
-    };
-
-    try {
-      const data = await getAllCampers(params);
-      dispatch(appendTrucks(data.items));
-    } catch (error) {
-      console.error("Error fetching vehicles:", error);
-    }
+    // dispatch(resetCurrentPage());
+    // dispatch(getAllCampers());
+    dispatch(setLocation(locationTrucks));
+    dispatch(toggleFilters(selectedEquipment));
+    dispatch(setFormType(vehicleType));
   };
 
   return (
     <form className={css.form} onSubmit={handleSearch}>
-      <div className={css.locationInputContainer}>
+      <div className={css.locationInputWrapper}>
         <label className={css.locLabel} htmlFor="location-select">
           Location
         </label>
-        <div className={css.selectWrapper}>
+        <div className={css.inputBox}>
           <svg className={css.locationIcon}>
-            <use href={`${iconsSpritePath}#icon-map`} />
+            <use href={`${icons}#icon-map`} />
           </svg>
-          {/* <select
-          className={css.customSelect}
-          id="location-select"
-          value={selectedLocation}
-          onChange={handleChange}
-        >
-          <option value="">City</option>
-          {citiList.map((item, index) => (
-            <option key={index} value={item}>
-              {item}
-            </option>
-          ))}
-        </select> */}
           <input
-            className={css.customSelect}
+            className={css.customInput}
             type="text"
-            // className={css.locationInput}
             placeholder="City"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            value={locationTrucks}
+            onChange={(e) => setLocationTrucks(e.target.value)}
           />
         </div>
-
-        {/*               
-                <svg className={css.locationIcon}>
-                    <use href={`${iconsSpritePath}#icon-map`} />
-                </svg>
-                <input
-                    type="text"
-                    className={css.locationInput}
-                    placeholder="Ukraine, Kyiv"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                /> */}
       </div>
 
       <p className={css.filtersTitle}>Filters</p>
+
       <div className={css.equipmentContainer}>
         <p className={css.text}>Vehicle equipment</p>
-         <hr className={css.line} />
-        <ul className={css.inputsWrapper}>
-          {equipmentOptions.map((option) => (
-            <li key={option} className={css.listItem}>
-              {/* <label
-              className={`${css.label} ${filters[item] ? css.checked : ""}`}
-            > */}
-              <label htmlFor={`equipment-${option}`} className={css.label}>
+        <hr className={css.line} />
+        <ul className={css.equipmentList}>
+          {options.map((item) => (
+            <li key={item} className={css.listItem}>
+              <label
+                className={`${css.label} ${
+                  selectedEquipment[item] ? css.checked : ""
+                }`}
+              >
                 <input
                   className={css.input}
                   type="checkbox"
-                  id={`equipment-${option}`}
-                  name="equipment"
-                  value={option}
-                  checked={selectedEquipment.includes(option)}
-                  onChange={() => handleEquipmentChange(option)}
-
-                  // onClick={() => handleClick(value)}
+                  id={`equipment-${item}`}
+                  name={item}
+                  checked={selectedEquipment[item]}
+                  onChange={handleEquipmentChange}
                 />
                 <div className={css.contentWrapper}>
                   <svg width={32} height={32}>
-                    <use href={`${iconsSpritePath}#${iconMapping[option]}`} />
+                    <use href={`${icons}#icon-${item.toLowerCase()}`} />
                   </svg>
-                  <span>{option}</span>
+                  <span>{item}</span>
                 </div>
               </label>
             </li>
@@ -154,31 +114,28 @@ const CatalogFilters = () => {
 
       <div className={css.vehicleTypeContainer}>
         <p className={css.text}>Vehicle type</p>
-         <hr className={css.line} />
-        <ul className={css.inputsWrapper}>
-          {vehicleTypes.map((type) => (
-            <li key={type} className={css.listItem}>
-              {/* <label
-              className={`${css.label} ${
-                selectedFormType === value ? css.checked : ""
-              }`}
-            ></label> */}
-              <label htmlFor={`vehicleType-${type}`} className={css.label}>
+        <hr className={css.line} />
+        <ul className={css.equipmentList}>
+          {type.map(({ name, value }) => (
+            <li key={value} className={css.listItem}>
+              <label
+                className={`${css.label} ${
+                  vehicleType === value ? css.checked : ""
+                }`}
+              >
                 <input
                   className={css.input}
                   type="radio"
-                  id={`vehicleType-${type}`}
                   name="vehicleType"
-                  value={type}
-                  aria-label={type}
-                  checked={vehicleType === type}
-                  onClick={() => handleVehicleTypeChange(type)}
+                  value={value}
+                  aria-label={name}
+                  onClick={() => handleTypeClick(value)}
                 />
                 <div className={css.contentWrapper}>
                   <svg width={32} height={32}>
-                    <use href={`${iconsSpritePath}#${iconMapping[type]}`} />
+                    <use href={`${icons}#icon-${value}`} />
                   </svg>
-                  <span>{type}</span>
+                  <span>{name}</span>
                 </div>
               </label>
             </li>
@@ -193,4 +150,4 @@ const CatalogFilters = () => {
   );
 };
 
-export default CatalogFilters;
+export default CampersFilters;

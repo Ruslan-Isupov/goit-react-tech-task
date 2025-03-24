@@ -1,12 +1,21 @@
+.form {
+    /* margin-top: 48px; */
+    /* margin-left: 64px; */
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+}
 /* Location */
-.locationInputContainer {
+
+
+.locationInputWrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 8px;
 }
 
-.selectWrapper {
+.inputBox {
     position: relative;
     width: 360px;
     height: 56px;
@@ -19,7 +28,7 @@
     fill: #101828;
 }
 
-.customSelect {
+.customInput {
     appearance: none;
     border: none;
     outline: none;
@@ -57,13 +66,7 @@
 }
 
 
-.form {
-    margin-top: 48px;
-    margin-left: 64px;
-    display: flex;
-    flex-direction: column;
-    max-width: 360px;
-}
+
 
 
 .filtersTitle {
@@ -97,7 +100,7 @@
     margin: 24px 0;
 }
 
-.inputsWrapper {
+.equipmentList {
     display: flex;
     gap: 12px;
     list-style: none;

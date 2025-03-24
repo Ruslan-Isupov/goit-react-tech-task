@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { trucksReducer } from "./trucksSlice";
+import { filtersReducer } from "./filtersSlice";
 import sessionStorage from "redux-persist/lib/storage";
 import { persistStore, persistReducer } from "redux-persist";
 
@@ -11,6 +12,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   trucks: trucksReducer,
+  filters: filtersReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
