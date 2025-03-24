@@ -8,18 +8,20 @@ const handlePending = (state) => {
 const handleRejected = (state, action) => {
   state.loader = false;
   state.error = action.payload;
-  // return "Помилка";
 };
-
+const checkHasLoadMore = (state) => {
+  const totalPages = Math.ceil(state.totalItems / state.itemsPerPage);
+  state.hasLoadMore = state.currentPage < totalPages;
+};
 const initialState = {
   items: [],
+  currentCamper: null,
   loader: false,
   error: null,
-  currentCamper: null,
   currentPage: 1,
   itemsPerPage: 10,
   totalItems: 0,
-  hasNextPage: false,
+  hasLoadMore: false,
 };
 
 const trucksSlice = createSlice({
@@ -33,9 +35,6 @@ const trucksSlice = createSlice({
       state.currentPage = 1;
       state.items = [];
     },
-    appendTrucks: (state, action) => {
-      state.items = [...state.items, ...action.payload];
-    },
   },
 
   extraReducers: (builder) => {
@@ -44,7 +43,14 @@ const trucksSlice = createSlice({
       .addCase(getAllCampers.fulfilled, (state, action) => {
         state.loader = false;
         state.error = null;
-        state.items = [...state.items, ...action.payload.items];
+        // state.items = [...state.items, ...action.payload.items];
+        if (state.currentPage === 1) {
+          state.items = action.payload.items;
+        } else {
+          state.items.push(...action.payload.items);
+        }
+        state.totalItems = action.payload.total;
+        checkHasLoadMore(state);
       })
       .addCase(getAllCampers.rejected, handleRejected)
       .addCase(getCamperById.pending, handlePending)
@@ -57,7 +63,6 @@ const trucksSlice = createSlice({
   },
 });
 
-export const { incrementCurrentPage, resetCurrentPage, appendTrucks } =
-  trucksSlice.actions;
+export const { incrementCurrentPage, resetCurrentPage } = trucksSlice.actions;
 
 export const trucksReducer = trucksSlice.reducer;
