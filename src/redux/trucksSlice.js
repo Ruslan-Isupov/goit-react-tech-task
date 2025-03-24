@@ -18,7 +18,6 @@ const initialState = {
   currentCamper: null,
   currentPage: 1,
   itemsPerPage: 10,
-  itemId: null,
   totalItems: 0,
   hasNextPage: false,
 };
@@ -38,26 +37,8 @@ const trucksSlice = createSlice({
       state.items = [...state.items, ...action.payload];
     },
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(getAllCampers.pending, handlePending)
-  //     .addCase(getAllCampers.fulfilled, (state, action) => {
-  //       // console.log(action.payload);
-  //       state.loader = false;
-  //       state.error = null;
-  //       state.items = [...state.items, ...action.payload.items];
-  //     })
-  //     .addCase(getAllCampers.rejected, handleRejected)
-  //     .addCase(getCamperById.pending, handlePending)
-  //     .addCase(getCamperById.fulfilled, (state, action) => {
-  //       state.loader = false;
-  //       state.itemId = action.payload;
-  //     })
-  //     .addCase(getCamperById.rejected, handleRejected);
-  // },
 
   extraReducers: (builder) => {
-    // Fetch campers
     builder
       .addCase(getAllCampers.pending, handlePending)
       .addCase(getAllCampers.fulfilled, (state, action) => {
@@ -66,7 +47,6 @@ const trucksSlice = createSlice({
         state.items = [...state.items, ...action.payload.items];
       })
       .addCase(getAllCampers.rejected, handleRejected)
-      // Fetch camper
       .addCase(getCamperById.pending, handlePending)
       .addCase(getCamperById.fulfilled, (state, action) => {
         console.log(action.payload);
