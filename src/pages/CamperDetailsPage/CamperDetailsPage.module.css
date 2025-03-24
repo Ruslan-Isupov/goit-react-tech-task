@@ -1,0 +1,50 @@
+.mainWrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 64px 80px 64px;
+}
+
+.TruckDetails {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #dadde1;
+}
+
+.link {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.link::after {
+    content: "";
+    position: absolute;
+    bottom: -28px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.link.active::after {
+    background-color: #e44848;
+}
+
+.link:hover::after {
+    background-color: #e29898;
+}
+
+.wrapperBottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formWrapper {
+    justify-self: flex-end;
+    align-self: center;
+}
