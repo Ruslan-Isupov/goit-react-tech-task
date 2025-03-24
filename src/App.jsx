@@ -1,8 +1,12 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage.jsx";
+import Navigation from "./components/Navigation/Navigation";
+// import Loader from "./components/Loader/Loader";
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
-
+const CamperDetailsPage = lazy(() =>
+  import("./pages/CamperDetailsPage/CamperDetailsPage.jsx")
+);
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage.jsx"));
 
@@ -12,10 +16,12 @@ const App = () => {
       <header>
         <Navigation />
       </header>
-      <Suspense fallback={<Loader />}>
+      <Suspense >
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<CamperDetailsPage />}>
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
