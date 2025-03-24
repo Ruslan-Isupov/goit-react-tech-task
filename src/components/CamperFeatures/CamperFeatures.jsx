@@ -2,7 +2,7 @@ import { selectCurrentCamper } from "../../redux/selectors";
 import { useSelector } from "react-redux";
 
 
-import SpecificationList from "../SpecificationList/SpecificationList";
+import OptionsList from "../OptionsList/OptionList";
 import VehicleDetailsList from "../VehicleDetailsList/VehicleDetailsList";
 import BookingForm from "../BookingForm/BookingForm";
 
@@ -17,7 +17,7 @@ const CamperFeatures = () => {
     <div className={css.featuresContainer}>
       <div className={css.contentWrapper}>
         <div className={css.specificationListWrapper}>
-          <SpecificationList truck={truck} />
+          <OptionsList truck={truck} />
         </div>
         <div className={css.specificationListWrapper}>
           <h3 className={css.title}>Vehicle details</h3>

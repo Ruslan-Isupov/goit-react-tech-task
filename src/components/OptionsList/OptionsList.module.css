@@ -1,0 +1,27 @@
+.specificationList {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.specificationListItem {
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 100px;
+    background-color: #f2f4f7;
+    color: #101828;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    mix-blend-mode: multiply;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active {
+    color: #ffffff;
+    background-color: #e44848;
+}

@@ -1,4 +1,4 @@
-export const Specification = (truck) => [
+export const Options = (truck) => [
   {
     condition: truck.transmission === "automatic",
     text: "Automatic",
