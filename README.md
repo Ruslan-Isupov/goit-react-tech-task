@@ -1,6 +1,6 @@
 Сampers Frontend Project
 
-![TravelTrucks](./assets/campers.jpg)
+![TravelTrucks](./src/assets/campers.jpg)
 
 Overview
 
