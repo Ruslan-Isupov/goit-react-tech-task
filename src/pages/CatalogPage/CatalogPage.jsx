@@ -34,8 +34,8 @@ const CatalogPage = () => {
   }, [dispatch, limit, location, equipment, form]);
 
   return (
-    <div className={css.wrapper}>
-          <div className={css.container}>
+    <div className={css.container}>
+          <div className={css.wrapper}>
       <CampersFilters />
       <CamperList />
       </div>

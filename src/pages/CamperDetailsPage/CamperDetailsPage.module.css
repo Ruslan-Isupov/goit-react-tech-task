@@ -18,8 +18,12 @@
     line-height: 1.2;
     position: relative;
     margin-bottom: 24px;
+    color: #101828;
 }
-
+.link:hover {
+    
+    color: #454547;
+}
 .link::after {
     content: "";
     position: absolute;
@@ -30,6 +34,9 @@
     background-color: transparent;
     transition: background-color 0.3s ease;
 }
+
+
+
 
 .link.active::after {
     background-color: #e44848;

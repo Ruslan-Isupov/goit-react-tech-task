@@ -69,7 +69,7 @@ const CampersFilters = () => {
           <input
             className={css.customInput}
             type="text"
-            placeholder="City"
+            placeholder="Ukraine, Kyiv"
             value={locationTrucks}
             onChange={(e) => setLocationTrucks(e.target.value)}
           />

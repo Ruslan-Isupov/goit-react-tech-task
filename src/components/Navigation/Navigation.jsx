@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
 const Navigation = () => {
   return (
-    <header>
-      <nav className={css.header}>
-        <NavLink className={css.styledLink} to="/">
-           <img src={travelTrucks} alt="logo" className={css.icon} />
+    <header className={css.header}>
+      <nav className={css.nav}>
+        <NavLink className={css.logoStyledLink} to="/">
+           <img src={travelTrucks} alt="logo" className={css.logo} />
         </NavLink>
          <div className={css.menu}>
         <NavLink className={css.styledLink} to="/">

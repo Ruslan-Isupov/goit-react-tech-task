@@ -31,7 +31,7 @@ export default function Reviews() {
                           index < item.reviewer_rating ? css.filled : css.empty
                         }
                       >
-                        <use href={`${icons}#star`} />
+                       <use href={`${icons}#icon-star`} />
                       </svg>
                     </li>
                   ))}

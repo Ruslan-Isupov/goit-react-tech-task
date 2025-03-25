@@ -18,13 +18,13 @@ export default function VehicleDetailsList({ truck }) {
   ];
 
   return (
-    <div className={css.detailsList}>
+    <ul className={css.detailsList}>
       {detailItems.map((item) => (
-        <div key={item.label} className={css.detailItem}>
+        <li key={item.label} className={css.detailItem}>
           <span className={css.label}>{item.label}</span>
           <span className={css.value}>{item.value}</span>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

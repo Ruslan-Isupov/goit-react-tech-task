@@ -42,7 +42,7 @@ const CamperItem = ({ camperDetails }) => {
       />
       <div>
         <div className={css.mainInfo}>
-          <p className={css.title}>{camperDetails.name} </p>
+          <h2 className={css.title}>{camperDetails.name} </h2>
           <div className={css.wrapperItem}>
             <p className={css.price}>{`€${camperDetails.price.toFixed(2)}`}</p>
 
@@ -80,7 +80,7 @@ const CamperItem = ({ camperDetails }) => {
         </div>
 
         <p className={css.description}>
-          {camperDetails.description.slice(0, 80) + "..."}
+          {camperDetails.description.slice(0, 65) + "..."}
         </p>
         <ul className={css.listIcon}>
           {features.map((feature) => (

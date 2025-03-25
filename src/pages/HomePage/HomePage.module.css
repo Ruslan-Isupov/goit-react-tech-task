@@ -1,5 +1,4 @@
 .title {
-    /* margin-left: 10px; */
     margin-bottom: 16px;
     font-family: Inter;
     font-weight: 600;
@@ -22,15 +21,16 @@
 .container {
     display: flex;
     flex-direction: column;
-
+    
     align-items: flex-start;
     background-image: url(../../assets/van.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 260PX 64px;
+    padding: 260px 64px;
     /* height: calc(100vh - 72px); */
     height: auto;
+    
 }
 
 .heroBtn {
@@ -40,8 +40,6 @@
     line-height: 1.5;
     vertical-align: middle;
     color: #ffffff;
-    /* width: 173;
-  height: 56; */
     border-radius: 200px;
     padding: 16px 48.5px;
     background-color: #E44848;

@@ -25,7 +25,7 @@ export default function BookingForm() {
 
   const handleSubmit = (action) => {
     toast.success(
-      "Congratulations, your reservation is successful. We will contact you shortly!"
+      "Your reservation has been successfully processed. We will be in touch with you shortly to confirm the details."
     );
     action.resetForm();
   };

@@ -15,8 +15,7 @@ const HomePage = () => {
       <p className={css.paragraph} >You can find everything you want in our catalog</p>
         <button className={css.heroBtn} onClick={handleViewNowClick}>View now</button>
         </div>
-      
-    
+  
   );
 };
 export default HomePage;
