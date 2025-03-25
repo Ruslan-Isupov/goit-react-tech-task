@@ -149,7 +149,6 @@
 }
 
 .icon {
-    /* fill: currentColor; */
-    fill:black;
-    /* align-items: center; */
+    fill: currentColor;
+
 }

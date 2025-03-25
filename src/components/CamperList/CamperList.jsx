@@ -1,5 +1,6 @@
 import css from "./CamperList.module.css";
 import CamperItem from "../CamperItem/CamperItem";
+import Loader from '../Loader/Loader'
 import { getAllCampers } from "../../redux/camperOps";
 import { useDispatch, useSelector } from "react-redux";
 import { incrementCurrentPage } from "../../redux/trucksSlice";
@@ -66,8 +67,7 @@ const CamperList = () => {
                     </li>
                 ))}
             </ul>
-            {/* {loader && <Loader />} */}
-            {loader && "Завантаження"}
+            {loader && <Loader loading={loader}/>}
             {hasLoadMore && (
               <button className={css.btnMore} onClick={handleLoadMore} >
                 {loader ? "Loading..." : "Load more"}
