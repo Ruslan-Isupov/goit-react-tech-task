@@ -1,5 +1,6 @@
 
 import CamperDetails from "../../components/CamperDetails/CamperDetails";
+import Loader from '../../components/Loader/Loader'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
@@ -30,7 +31,8 @@ export default function CamperDetailsPage() {
 
   return (
     <div className={css.mainWrapper}>
-      {loader && "loading"}
+      {/* {loader && "loading"} */}
+       {loader && <Loader loading={loader}/>}
       {truck && (
         <>
           <CamperDetails />

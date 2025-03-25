@@ -3,13 +3,14 @@ export const Options = (truck) => [
     condition: truck.transmission === "automatic",
     text: "Automatic",
     id: "automatic",
-    icon: "automatic",
+    icon: "diagram",
   },
   {
     condition: truck.engine === "petrol",
     text: "Petrol",
     id: "engine",
-    icon: "Petrol",
+    // icon: "Petrol",
+    icon: "petrol",
   },
   {
     condition: truck.kitchen,
@@ -32,13 +33,15 @@ export const Options = (truck) => [
     condition: truck.refrigerator,
     text: "Refrigerator",
     id: "refrigerator",
+    // icon: "Refrigerator",
     icon: "Refrigerator",
   },
   {
     condition: truck.microwave,
     text: "Microwave",
     id: "microwave",
-    icon: "Microwave",
+    // icon: "Microwave",
+    icon: "microwave",
   },
   {
     condition: truck.form === "panelTruck",
@@ -56,6 +59,6 @@ export const Options = (truck) => [
     condition: truck.form === "fullyIntegrated",
     text: "Fully Integrated",
     id: "fullyIntegrated",
-    icon: "fullyIntegrated",
+    icon: "integrated",
   },
 ];

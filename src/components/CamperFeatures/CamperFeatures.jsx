@@ -12,7 +12,6 @@ const CamperFeatures = () => {
   
 
  const truck = useSelector(selectCurrentCamper);
- console.log(truck)
   return (
     <div className={css.featuresContainer}>
       <div className={css.contentWrapper}>

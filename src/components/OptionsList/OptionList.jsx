@@ -11,6 +11,11 @@ export default function SpecificationList({ truck }) {
   const equipment = useSelector(selectFiltersEquipment);
   const type = useSelector(selectFormType);
 
+  console.log(specifications.filter((specification) => specification.condition)
+  .map((specification) => (
+    console.log(specification.text)
+    
+        )))
   return (
     <ul className={css.specificationList}>
       {specifications
