@@ -17,16 +17,13 @@ const filtersSlice = createSlice({
   initialState,
   reducers: {
     toggleFilters: (state, { payload }) => {
-      // console.log(payload);
       const { name, checked } = payload;
       state.equipment[name] = checked;
     },
     setFormType: (state, { payload }) => {
-      // console.log(payload);
       state.formType = payload;
     },
     setLocation: (state, { payload }) => {
-      // console.log(payload);
       state.location = payload;
     },
   },

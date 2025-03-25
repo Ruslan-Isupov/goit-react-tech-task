@@ -20,7 +20,7 @@ const CampersFilters = () => {
   };
   const type = [
     { name: "Van", value: "van" },
-    { name: "Fully Integrated", value: "fullyintegrated" },
+    { name: "Fully Integrated", value: "fullyIntegrated" },
     { name: "Alcove", value: "alcove" },
   ];
 
@@ -99,7 +99,8 @@ const CampersFilters = () => {
                 />
                 <div className={css.contentWrapper}>
                   <svg width={32} height={32}>
-                    <use href={`${icons}#icon-${item.toLowerCase()}`} />
+                    {/* <use href={`${icons}#icon-${item.toLowerCase()}`} /> */}
+                   <use href={`${icons}#${item.toLowerCase() === 'automatic' ? 'icon-diagram' : `icon-${item.toLowerCase()}`}`} />
                   </svg>
                   <span>{item}</span>
                 </div>
@@ -130,7 +131,8 @@ const CampersFilters = () => {
                 />
                 <div className={css.contentWrapper}>
                   <svg width={32} height={32}>
-                    <use href={`${icons}#icon-${value}`} />
+                    {/* <use href={`${icons}#icon-${value}`} /> */}
+                    <use href={`${icons}#${value === 'fullyIntegrated' ? 'icon-integrated' : `icon-${value}`}`} />
                   </svg>
                   <span>{name}</span>
                 </div>
